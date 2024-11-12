@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Example</title>
+</head>
+<body>
+    <div class="nav-right">
+        <form role="form" novalidate id="searchForm">
+            <input type="search" id="searchInput" placeholder="Search..." autocomplete="off" required>
+            <button type="submit">
+                <img class="spark" src="images/others/sparkle.gif" style="width: 20px; height: 20px;">
+            </button>
+            <span id="searchResult" class="search-result"></span>
+        </form>
+    </div>
+
+    <style>
+        /* Styles for search input */
+#searchInput {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Styling the dropdown results */
+.search-result {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #333;
+    position: absolute;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+/* Individual search result items */
+.search-result span {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #555;
+}
+
+.search-result span:hover {
+    background-color: #444;
+}
+
+/* To style the item category (e.g., Pokedex, Item, etc.) */
+.search-result span .category {
+    font-size: 12px;
+    color: #aaa;
+}
+
+    </style>
+    <!-- Place your script here -->
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const searchResult = document.getElementById('searchResult');
+
+    // Example dataset to search through (item name, type)
+    const adminGroups = [
+        { name: 'Groudon', type: 'Pokedex' },
+        { name: 'Ground', type: 'Type' },
+        { name: 'Ground Gem', type: 'Item' },
+        { name: 'Ground Memory', type: 'Item' },
+        { name: 'Ground Tera Shard', type: 'Item' },
+        { name: 'Groundium Z', type: 'Item' },
+        { name: 'Underground Path 5-6, Kanto', type: 'Location' },
+        { name: 'Underground Path 7-8, Kanto', type: 'Location' },
+        { name: 'Goldenrod Underground, Johto', type: 'Location' },
+        { name: 'Grand Underground, Sinnoh', type: 'Location' },
+        { name: 'Underground Ruins, Unova', type: 'Location' }
+    ];
+
+    // Event listener for input change
+    searchInput.addEventListener('input', function () {
+        const query = searchInput.value.toLowerCase();
+
+        // Clear previous results
+        searchResult.innerHTML = '';
+
+        // Filter the dataset based on input query
+        const filteredResults = adminGroups.filter(group => group.name.toLowerCase().includes(query));
+
+        // Display matching results
+        if (filteredResults.length > 0) {
+            searchResult.style.display = 'block'; // Show the dropdown
+            filteredResults.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.innerHTML = `
+                    <span>${result.name}</span>
+                    <span class="category">${result.type}</span>
+                `;
+                searchResult.appendChild(resultDiv);
+            });
+        } else {
+            searchResult.style.display = 'none'; // Hide dropdown if no results
+        }
+    });
+
+    // Hide results when clicking outside the search input
+    document.addEventListener('click', function (e) {
+        if (!searchResult.contains(e.target) && e.target !== searchInput) {
+            searchResult.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
