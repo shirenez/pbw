@@ -153,7 +153,7 @@ pkm.forEach(pokemon => {
     const elements = document.querySelectorAll(`.${pokemon}`);
 
     elements.forEach(element => {
-        loadComponent(`pokemon/link/${pokemon}.html`, element);
+        loadComponent(`pokemon/${pokemon}.html`, element);
     });
 });
 

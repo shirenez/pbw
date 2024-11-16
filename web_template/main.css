@@ -52,18 +52,19 @@ html{
     background-color: rgba(13, 16, 23, 0.97); /* Slight opacity */
     border-radius: 4px;
     position: absolute;
-    margin: 0 auto;
-    height: auto;
-    top: 6%;
-    left: 4%;
-    right: 5%;
+    left: 50%; /* Position from the left side of the container */
+    transform: translateX(-50%); /* Offset it by 50% of its width to center it */
+    padding: 40px 80px;
     color: #dbe3ff;
     line-height: 1.5;
     font-family: 'Poppins', sans-serif;
-    padding: 40px 80px;
     font-weight: 400;
     z-index: 10;
+    height: auto;
+    top: 6%; /* Keep it positioned 6% from the top */
+    margin: 0;
 }
+
 
 /* Media Queries for Responsiveness */
 
@@ -492,7 +493,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /* For devices smaller than 1024px (tablets) */
 @media (max-width: 1024px) {
     .sidebar {
-        max-width: 250px; /* Reduce the sidebar width for tablets */
+        transform: scale(0.9);
     }
 }
 
@@ -566,8 +567,6 @@ input[type="search"]::-webkit-search-results-decoration {
     text-decoration: none;
     filter: brightness(100%);
     transition: all 0.4s ease;
-    -webkit-text-stroke: 1px rgb(255, 255, 255, 0);
-
 }
 
 .functional-link a:hover {
@@ -575,9 +574,11 @@ input[type="search"]::-webkit-search-results-decoration {
     background-position: 50% 87%;
     opacity: 0.95;
     transition: background-size 0.4s ease, background-position 0.4s ease;
-    color: #008deb;
-    outline: white 1px solid;
+    color: #979797;
     transition: all 0.4s ease;
+}
+.functional-link:hover::before {
+    transform: translate(-50%, -50%) scale(1);
 }
 .box-functional-link a{
     background: linear-gradient(hsl(182, 100%, 94%), hsl(0, 0%, 100%));
@@ -593,7 +594,7 @@ input[type="search"]::-webkit-search-results-decoration {
     background-position: 50% 87%;
     opacity: 0.95;
     transition: all 0.3s ease;
-    color: #bdbdbd;
+    color: #979797;
 }
 .contents-line{
     opacity: 0.4;
@@ -637,6 +638,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /* ------------------------------------- BUTTON ------------------------------------- */
 
 .typo-button{
+    position: relative;
     width: 100%;
     max-width: 64px;
     min-width: 64px;
@@ -644,90 +646,91 @@ input[type="search"]::-webkit-search-results-decoration {
     max-height: 23px;
     min-height: 23px;
     border-radius: 3.8px;
+    background: inherit;
     color: #e5e8f7;
     text-align: center;
-    font-size: 11.4px;
+    font-size: 11px;
     font-weight: 400;
     text-shadow: 1px 1px 2px rgba(15, 15, 15, 0.7);
     transition: 0.3s;
     font-family: "Fira Sans", "Trebuchet MS", Ubuntu, Helvetica, Arial, sans-serif;
-    text-transform:uppercase;
 }
 .typo-button:hover{
-    filter: brightness(90%);
-    transition: all 0.2s ease;
+    opacity: 0.8;
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
 
 .normal-type{
     background: #AAAA99;
-    border:rgb(83, 83, 83) 1.5px solid;
+    border:rgb(83, 83, 83) 1.7px solid;
 }
 .fire-type{
     background: #FF6043;
-    border:rgb(100, 26, 26) 1.5px solid;
+    border:rgb(100, 26, 26) 1.7px solid;
 }
 .water-type{
-    border:rgb(28, 66, 92) 1.5px solid;
+    border:rgb(28, 66, 92) 1.7px solid;
     background: #51A8FF;
 }
 .electric-type{
-    border:rgb(87, 70, 16) 1.5px solid;
+    border:rgb(87, 70, 16) 1.7px solid;
     background: #FFCC33;
 }
 .grass-type{
     background: #8BD46E;
-    border:rgb(50, 99, 48) 1.5px solid;
+    border:rgb(50, 99, 48) 1.7px solid;
 }
 .ice-type{
-    border:rgb(44, 85, 92) 1.5px solid;
+    border:rgb(44, 85, 92) 1.7px solid;
     background: #76d1ff;
 }
 .fighting-type{
-    border:rgb(83, 51, 43) 1.5px solid;
+    border:rgb(83, 51, 43) 1.7px solid;
     background: #C56E60;
 }
 .poison-type{
-    border:rgb(82, 46, 87) 1.5px solid;
+    border:rgb(82, 46, 87) 1.7px solid;
     background: #AA5599;
 }
 .ground-type{
-    border:rgb(92, 78, 39) 1.5px solid;
+    border:rgb(92, 78, 39) 1.7px solid;
     background: #DDBB55;
 }
 .flying-type{
-    border:rgb(45, 53, 90) 1.5px solid;
+    border:rgb(45, 53, 90) 1.7px solid;
     background: #8899FF;
 }
 .psychic-type{
-    border:rgb(82, 25, 47) 1.5px solid;
+    border:rgb(82, 25, 47) 1.7px solid;
     background: #FF5599;
 }
 .bug-type{
     background: #AABB22;
-    border:#3e440e 1.5px solid;
+    border:#3e440e 1.7px solid;
 }
 .rock-type{
-    border:rgb(77, 74, 46) 1.5px solid;
+    border:rgb(77, 74, 46) 1.7px solid;
     background: #BBAA66;
 }
 .ghost-type{
-    border:rgb(48, 46, 75) 1.5px solid;
+    border:rgb(48, 46, 75) 1.7px solid;
     background: #6666BB;
 }
 .dragon-type{
-    border:rgb(43, 39, 78) 1.5px solid;
+    border:rgb(43, 39, 78) 1.7px solid;
     background: #7766EE;
 }
 .dark-type{
-    border:rgb(49, 37, 31) 1.5px solid;
+    border:rgb(49, 37, 31) 1.7px solid;
     background: #775544;
 }
 .steel-type{
-    border:rgb(74, 74, 82) 1.5px solid;
+    border:rgb(74, 74, 82) 1.7px solid;
     background: #AAAABB;
 }
 .fairy-type{
-    border:rgb(74, 53, 77) 1.5px solid;
+    border:rgb(74, 53, 77) 1.7px solid;
     background: #EE99EE;
 }
 
@@ -740,9 +743,21 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 7px 14px 7px 14px;
     text-align: center;
 }
+.grid-info{
+    display: grid;
+    grid-template-columns: 1fr auto auto; /* Left item, flexible gap, right item */
+    grid-template-rows: auto; /* Rows adjust to content */
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    padding: 10px;
+}
 
 /* ------------------------------------- FOOTER AND DESCRIPTION ------------------------------------- */
 
+.foot-grid{
+    display: grid;
+}
 .footer{
     margin-top: 30px;
     bottom: 0;
@@ -782,9 +797,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 .trainer-tab{
     border: hsl(211, 22%, 72%, 0.5) 2px solid; 
-    margin-bottom: 45px; 
-    margin-top: 45px; 
-    table-layout: auto;
+    margin: 0 auto;
+    transform: scale(0.95);
+    transform-origin: center;
 }
 .pkm-table td{
     border-right: hsl(211, 22%, 72%, 0.5) 2px solid;
