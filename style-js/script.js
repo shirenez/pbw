@@ -9,10 +9,10 @@ function loadComponent(file, element, callback = null) {
 }
 
 // Load common components
-loadComponent('navbar.html', document.getElementById('navbar'), initializeSearch);
-loadComponent('footer.html', document.getElementById('footer'));
-loadComponent('sidebar.html', document.getElementById('sidebar'));
-loadComponent('bg.html', document.getElementById('bg'));
+loadComponent('/import/navbar.html', document.getElementById('navbar'), initializeSearch);
+loadComponent('/import/footer.html', document.getElementById('footer'));
+loadComponent('/import/sidebar.html', document.getElementById('sidebar'));
+loadComponent('/import/bg.html', document.getElementById('bg'));
 
 // Load type-specific components for all elements of each type
 const types = ['fire', 'water', 'ground', 'electric', 'dark', 'ghost', 'steel',
@@ -25,7 +25,7 @@ types.forEach(type => {
 
     elements.forEach(element => {
         // Load the corresponding component into each element
-        loadComponent(`typo/${type}.html`, element);
+        loadComponent(`/typo/${type}.html`, element);
     });
 });
 
@@ -195,7 +195,7 @@ items.forEach(item => {
     const elements = document.querySelectorAll(`.${item}`);
 
     elements.forEach(element => {
-        loadComponent(`pokemon/items/${item}.html`, element);
+        loadComponent(`/pokemon/items/${item}.html`, element);
     });
 });
 
@@ -323,7 +323,7 @@ pkm.forEach(pokemon => {
     const elements = document.querySelectorAll(`.${pokemon}`);
 
     elements.forEach(element => {
-        loadComponent(`pokemon/pkm/${pokemon}.html`, element);
+        loadComponent(`/pokemon/pkm/${pokemon}.html`, element);
     });
 });
 

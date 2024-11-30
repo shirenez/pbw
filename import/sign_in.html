@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="reg-log.css">
+</head>
+<body>
+    <div class="container func-color functional-link">
+        <h1>Sign in to PBW</h1>
+        <form action="" class="login-form">
+            <div class="form-group">
+                <label for="username">Username or email address</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <p><a href="#" class="forgot-password">Forgot password?</a></p>
+            </div>
+            <button type="submit" class="btn">Sign in</button>
+        </form>
+        <div class="extras">
+            <p>Dont have an account? <a href="register.html">Create an account</a></p>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            console.log('Username:', username);
+            console.log('Password:', password);
+
+            window.location.href = window.location.href;
+
+        });
+    </script>
+</body>
+</html>
