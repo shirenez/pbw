@@ -9,10 +9,10 @@ function loadComponent(file, element, callback = null) {
 }
 
 // Load common components
-loadComponent('/import/navbar.html', document.getElementById('navbar'), initializeSearch);
-loadComponent('/import/footer.html', document.getElementById('footer'));
-loadComponent('/import/sidebar.html', document.getElementById('sidebar'));
-loadComponent('/import/bg.html', document.getElementById('bg'));
+loadComponent('import/navbar.html', document.getElementById('navbar'), initializeSearch);
+loadComponent('import/footer.html', document.getElementById('footer'));
+loadComponent('import/sidebar.html', document.getElementById('sidebar'));
+loadComponent('import/bg.html', document.getElementById('bg'));
 
 // Load type-specific components for all elements of each type
 const types = ['fire', 'water', 'ground', 'electric', 'dark', 'ghost', 'steel',
