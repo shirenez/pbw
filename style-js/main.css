@@ -33,24 +33,18 @@ Some other colours:
 html{
     scroll-behavior: smooth;
 }
-.b-img{
-    opacity: 0.85;
-    min-height: 100%;
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: -1;
+body{
+    background-color: black;
+    z-index: -10;
 }
 .home hr{
-    z-index: 1;
+    z-index: 2;
 }
 .home {
     width: 100%;
     max-width: 1125px;
-    background-color: rgba(13, 16, 23, 0.97); /* Slight opacity */
+    background-color: rgba(27, 38, 63, 0.15); /* Slight opacity */
+    border: rgb(36, 40, 52) 4px solid;
     border-radius: 4px;
     position: absolute;
     left: 50%; /* Position from the left side of the container */
@@ -292,12 +286,11 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 0.5px 3px 0 3px;
     border-radius: 3px;
     transform: translateX(230px);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 .nav-right button:hover {
-    background: rgb(65, 65, 65, 0.2);
-    transition: background 0.2s ease 0.2s, border 0.4s ease;
-    border: rgba(85, 85, 85, 0.5) 2px solid;
+    transition: all 0.3s;
+    border: rgba(104, 101, 117, 0.7) 2px solid;
 }
 /* Dropdown styling */
 #searchResult {
@@ -437,7 +430,9 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 2rem 0.6rem;
     box-sizing: border-box;
     max-width: 300px;
-    background-color: #111b2bcc;
+    background-color: #111b2b00;
+    border: #111b2b 3px solid;
+    border-left: none;
     position: fixed; /* Fixed positioning to make it sticky */
     top: 50%; /* Vertically centered */
     left: 0; /* Align to the left */
@@ -455,14 +450,17 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 0.7em;
     text-decoration: none;
     text-align: center; /* Center the menu text */
-    color: #dbe3ff; /* icon color */
+    color: #c9d5ffb4; /* icon color */
 }
 
 .sidebar .side-item .menu-item i:hover {
-    transition: all 0.2s ease;
-    border: rgb(231, 231, 231) 2px solid;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    border: rgb(101, 107, 123) 3px solid;
+    /* background-color: rgba(255, 255, 255); */
     border-radius: 4.5px;
-    color: #fffcd8;
+    color: #ffffff;
+    
 }
 
 .sidebar li {
@@ -481,10 +479,10 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: hsla(232, 100%, 93%, 0);
     padding: 6px;
     border-radius: 4.5px;
-    border: rgba(194, 194, 255, 0) 2px solid;
+    border: rgba(194, 194, 255, 0) 3px solid;
 }
 .side-item i {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     background-color: rgba(102, 112, 143, 0); /* Use rgba() for transparency */
     padding: 2px;
     border-radius: 4.5px;
@@ -545,6 +543,44 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* ------------------------------------- MODIFY AND ANIMATION ------------------------------------- */
 
+#background {
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+.stars-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interference with page interactions */
+    z-index: 9 !important; /* Keeps stars above the background */
+  }
+  
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 1.4s infinite ease-in-out;
+    opacity: 0.8;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.2;
+    }
+}
 .contents-menu a{
     color: #dbe3ff;
 }
